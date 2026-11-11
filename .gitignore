@@ -4,8 +4,8 @@ coverage/
 .env
 .env.*
 !.env.example
-.commandcode/*
-!.commandcode/settings.json
-!.commandcode/commands/
-!.commandcode/commands/**
+AGENTS.md
+MENTOR.md
+.agents/
+.commandcode/
 *.log

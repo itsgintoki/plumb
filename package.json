@@ -1,0 +1,36 @@
+{
+  "name": "plumb",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Payment reconciliation and refund ops. M1: verified webhook ingest.",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch --import tsx src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node --env-file-if-exists=.env dist/server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "node node_modules/drizzle-kit/bin.cjs generate",
+    "db:migrate": "node --env-file-if-exists=.env node_modules/drizzle-kit/bin.cjs migrate",
+    "services:up": "docker compose up -d --wait",
+    "services:down": "docker compose down",
+    "sim": "node --env-file-if-exists=.env --import tsx src/simulator/cli.ts"
+  },
+  "dependencies": {
+    "bullmq": "^6.3.4",
+    "drizzle-orm": "^0.45.2",
+    "express": "^5.2.1",
+    "ioredis": "^6.0.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.1",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
